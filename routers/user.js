@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.get('/verify/:email/:password', async (req, res) => {
+router.get('/verify', async (req, res) => {
     try {
         const users = await user.find({ email: req.params.email, password: req.params.password })
         res.json(users)
@@ -20,7 +20,7 @@ router.get('/verify/:email/:password', async (req, res) => {
         res.send('GET Request Error: ' + err)
     }
 })
-router.post('/register/:email/:password', async (req, res) => {
+router.post('/register', async (req, res) => {
     const newUser = new user({
         'email': req.params.email,
         'password': req.params.password
