@@ -14,7 +14,8 @@ router.get('/', async(req, res) => {
 
 router.get('/:companyName', async(req, res) => {
     try {
-        const reviews = await review.find({companyName: req.params.companyName})
+        // find where companyName in the url is a substring of the companyName in the database
+        const reviews = await review.find({ companyName: { $regex: req.params.companyName, $options: 'i' } })
         res.json(reviews)
     } catch (err) {
         res.send('GET Request Error: ' + err)
