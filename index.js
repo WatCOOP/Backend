@@ -4,7 +4,7 @@ const helmet = require("helmet");
 
 const app = express();
 const reviewRouter = require("./routers/reviews");
-
+const userRouter = require("./routers/user");
 
 app.get('/', (req, res) => {
   res
@@ -48,7 +48,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/reviews", reviewRouter);
-
+app.use("/users", userRouter);
 
 
 const PORT = process.env.PORT || 8080;
