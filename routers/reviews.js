@@ -15,7 +15,8 @@ router.get('/', async(req, res) => {
 router.get('/companyRoleDetails', async(req, res) => {
     try {
         // const reviews = await review.find({ companyName: req.params.company, jobTitle: req.params.role })
-        const okay = req.params.role,
+        
+        const okay = req.params.role
         const okayy = req.params.company
         res.json({
             okay,
