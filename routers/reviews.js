@@ -27,13 +27,13 @@ router.get('/companyRoleDetails', async(req, res) => {
         // get averageOpportunitiesToNetwork
         let totalOpportunitiesToNetwork = 0
         for(let i = 0; i < lengthOfReviews; i++){
-            totalOpportunitiesToNetwork += reviews[i].opportunitiesToNetwork
+            totalOpportunitiesToNetwork += reviews[i].oppertunitiesToNetwork
         }
         let averageOpportunitiesToNetwork = totalOpportunitiesToNetwork / lengthOfReviews
         // get averageOpportunitiesToLearn
         let totalOpportunitiesToLearn = 0
         for(let i = 0; i < lengthOfReviews; i++){
-            totalOpportunitiesToLearn += reviews[i].opportunitiesToLearn
+            totalOpportunitiesToLearn += reviews[i].oppertunitiesToLearn
         }
         let averageOpportunitiesToLearn = totalOpportunitiesToLearn / lengthOfReviews
     
