@@ -36,7 +36,9 @@ router.get('/companyRoleDetails', async(req, res) => {
             totalOpportunitiesToLearn += reviews[i].oppertunitiesToLearn
         }
         let averageOpportunitiesToLearn = totalOpportunitiesToLearn / lengthOfReviews
-    
+        averageSalary = averageSalary.toFixed(2)
+        averageOpportunitiesToNetwork = averageOpportunitiesToNetwork.toFixed(2)
+        averageOpportunitiesToLearn = averageOpportunitiesToLearn.toFixed(2)
 
         res.json({
             reviews,
