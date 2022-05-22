@@ -14,6 +14,8 @@ router.get('/', async(req, res) => {
 
 router.get('/companyRoleDetails', async(req, res) => {
     try {
+        console.log(req.params.company)
+        console.log(req.params.role)
         const reviews = await review.find({ company: req.params.company, role: req.params.role })
         const lengthOfReviews = reviews.length
         const averageSalary = reviews.reduce((acc, curr) => {
@@ -33,7 +35,7 @@ router.get('/companyRoleDetails', async(req, res) => {
             averageOpportunitiesToNetwork,
             averageOpportunitiesToLearn
         })
-        
+
     } catch (err) {
         res.send('GET Request Error: ' + err)
     }
