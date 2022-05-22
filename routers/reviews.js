@@ -16,7 +16,23 @@ router.get('/companyRoleDetails', async(req, res) => {
     try {
         const reviews = await review.find({ company: req.params.company, role: req.params.role })
         const lengthOfReviews = reviews.length
-        res.json(reviews)
+        const averageSalary = reviews.reduce((acc, curr) => {
+            return acc + curr.salary
+        }, 0) / lengthOfReviews
+        const averageOpportunitiesToNetwork = reviews.reduce((acc, curr) => {
+            return acc + curr.oppertunitiesToNetwork
+        }, 0) / lengthOfReviews
+        const averageOpportunitiesToLearn = reviews.reduce((acc, curr) => {
+            return acc + curr.oppertunitiesToLearn
+        }, 0) / lengthOfReviews
+
+        res.json({
+            reviews,
+            lengthOfReviews,
+            averageSalary,
+            averageOpportunitiesToNetwork,
+            averageOpportunitiesToLearn
+        })
         
     } catch (err) {
         res.send('GET Request Error: ' + err)
