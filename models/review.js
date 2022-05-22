@@ -22,6 +22,22 @@ const review = new mongoose.Schema({
         type: String,
         required: true,
     },
+    oppertunitiesToNetwork: {
+        type: Number,
+        required: true,
+    },
+    oppertunitiesToLearn: {
+        type: Number,
+        required: true,
+    },
+    interviewProcess: {
+        type: String,
+        required: true,
+    },
+    extraCompensation:{
+        type: String,
+        required: true,
+    }
 })
 
 module.exports = mongoose.model('Reviews', review)
