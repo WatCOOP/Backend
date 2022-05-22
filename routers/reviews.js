@@ -22,6 +22,16 @@ router.get('/:companyName', async(req, res) => {
     }
 })
 
+router.get('/id/:id', async(req, res) => {
+    try {
+        const reviews = await review.findById(req.params.id)
+        res.json(reviews)
+    } catch (err) {
+        res.send('GET Request Error: ' + err)
+    }
+})
+
+
 
 router.post('/', async(req, res) => {
     const newReview = new review({
