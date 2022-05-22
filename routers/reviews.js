@@ -14,7 +14,7 @@ router.get('/', async(req, res) => {
 
 router.get('/companyRoleDetails', async(req, res) => {
     try {
-        const reviews = await review.find({ companyName: req.params.company, jobTitle: req.params.role })
+        const reviews = await review.find({ companyName: "Apple", jobTitle: "Software Engineer"})
         const lengthOfReviews = reviews.length
         const averageSalary = reviews.reduce((acc, curr) => {
             return acc + curr.salary
