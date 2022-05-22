@@ -14,25 +14,12 @@ router.get('/', async(req, res) => {
 
 router.get('/companyRoleDetails', async(req, res) => {
     try {
-
-        const reviews = await review.find({ companyName: req.params.company, jobTitle: req.params.role })
-        const lengthOfReviews = reviews.length
-        const averageSalary = reviews.reduce((acc, curr) => {
-            return acc + curr.salary
-        }, 0) / lengthOfReviews
-        const averageOpportunitiesToNetwork = reviews.reduce((acc, curr) => {
-            return acc + curr.oppertunitiesToNetwork
-        }, 0) / lengthOfReviews
-        const averageOpportunitiesToLearn = reviews.reduce((acc, curr) => {
-            return acc + curr.oppertunitiesToLearn
-        }, 0) / lengthOfReviews
-
+        // const reviews = await review.find({ companyName: req.params.company, jobTitle: req.params.role })
+        const okay = req.params.role,
+        const okayy = req.params.company
         res.json({
-            reviews,
-            lengthOfReviews,
-            averageSalary,
-            averageOpportunitiesToNetwork,
-            averageOpportunitiesToLearn
+            okay,
+            okayy
         })
 
     } catch (err) {
