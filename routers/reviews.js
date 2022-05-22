@@ -16,15 +16,27 @@ router.get('/companyRoleDetails', async(req, res) => {
     try {
         const reviews = await review.find({ companyName: "Apple", jobTitle: "Software Engineer"})
         const lengthOfReviews = reviews.length
-        const averageSalary = reviews.reduce((acc, curr) => {
-            return acc + curr.salary
-        }, 0) / lengthOfReviews
-        const averageOpportunitiesToNetwork = reviews.reduce((acc, curr) => {
-            return acc + curr.oppertunitiesToNetwork
-        }, 0) / lengthOfReviews
-        const averageOpportunitiesToLearn = reviews.reduce((acc, curr) => {
-            return acc + curr.oppertunitiesToLearn
-        }, 0) / lengthOfReviews
+        
+
+        //get average salary in reviews
+        let totalSalary = 0
+        for(let i = 0; i < lengthOfReviews; i++){
+            totalSalary += reviews[i].salary
+        }
+        let averageSalary = totalSalary / lengthOfReviews
+        // get averageOpportunitiesToNetwork
+        let totalOpportunitiesToNetwork = 0
+        for(let i = 0; i < lengthOfReviews; i++){
+            totalOpportunitiesToNetwork += reviews[i].opportunitiesToNetwork
+        }
+        let averageOpportunitiesToNetwork = totalOpportunitiesToNetwork / lengthOfReviews
+        // get averageOpportunitiesToLearn
+        let totalOpportunitiesToLearn = 0
+        for(let i = 0; i < lengthOfReviews; i++){
+            totalOpportunitiesToLearn += reviews[i].opportunitiesToLearn
+        }
+        let averageOpportunitiesToLearn = totalOpportunitiesToLearn / lengthOfReviews
+    
 
         res.json({
             reviews,
